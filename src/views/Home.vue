@@ -27,7 +27,7 @@
           </el-col>
         </el-row>
       </div>
-      <div class="element-body-right">33</div>
+      <div class="element-body-right"><router-view></router-view></div>
     </div>
   </div>
 </template>
