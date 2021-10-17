@@ -22,3 +22,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## test
+git remote add origin git@github.com:qhk1/vue-practice.git
+git push -f  --set-upstream origin master
