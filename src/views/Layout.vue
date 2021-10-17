@@ -24,8 +24,8 @@ export default {
 </script>
 <style scoped lang="scss">
 .element {
-  width: 100rem;
-  height: 100rem;
+  // width: 100%;
+  // height: 100%;
   .element-header {
     width: 100%;
     height: 8rem;
@@ -49,7 +49,7 @@ export default {
     .element-body-right {
       width: 80%;
       height: 100%;
-      background-color: yellow;
+      // background-color: yellow;
     }
   }
 }

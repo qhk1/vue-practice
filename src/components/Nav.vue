@@ -10,7 +10,7 @@
         >
           <el-menu-item index="1">
             <i class="el-icon-menu"></i>
-            <router-link to="/nav1">导航一</router-link>
+            <router-link to="/button">按钮</router-link>
             <!-- <span slot="title">导航一</span> -->
           </el-menu-item>
           <el-menu-item index="2">
