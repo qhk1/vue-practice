@@ -15,7 +15,7 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
-import Nav from "./nav";
+import Nav from "../components/Nav";
 export default {
   components: {
     Nav,
