@@ -2,7 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Layout from '../views/Layout.vue';
 import ButtonPage from '../views/ButtonPage.vue';
-import nav2 from '../views/nav2.vue';
+import InputPage from '../views/InputPage.vue';
+
 
 Vue.use(VueRouter);
 
@@ -18,9 +19,9 @@ const routes = [
         component: ButtonPage,
       },
       {
-        path: '/nav2',
-        name: 'nav2',
-        component: nav2,
+        path: '/InputPage',
+        name: 'InputPage',
+        component: InputPage,
       },
     ],
   },

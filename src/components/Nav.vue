@@ -10,13 +10,13 @@
         >
           <el-menu-item index="1">
             <i class="el-icon-menu"></i>
-            <router-link to="/button">按钮</router-link>
+            <router-link to="/button">button按钮</router-link>
             <!-- <span slot="title">导航一</span> -->
           </el-menu-item>
           <el-menu-item index="2">
             <i class="el-icon-menu"></i>
             <!-- <span slot="title">导航二</span> -->
-            <router-link to="/nav2">导航二</router-link>
+            <router-link to="/InputPage">input输入框</router-link>
           </el-menu-item>
         </el-menu>
       </el-col>
