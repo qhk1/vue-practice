@@ -8,8 +8,12 @@
       :class="[myDisabled]"
       :maxlength="maxlength"
       :style="`height: ${this.row * 40}px`"
+      v-model="textInput"
     />
-    <button @click="clearShow()" v-if="clearable">{{text}}</button>
+    <span class="input-span" v-if="maxlength"
+      >{{ textInput.length }}/{{ maxlength }}</span
+    >
+    <i @click="clearShow()" v-if="clearable" class="el-icon-view"></i>
   </div>
 </template>
 <script>
@@ -17,6 +21,7 @@ export default {
   data() {
     return {
       text: "清空",
+      textInput: "",
     };
   },
   props: {
@@ -30,23 +35,21 @@ export default {
     placeholder: String,
 
     maxlength: Number,
-    
+
     clearable: {
       type: Boolean,
       default: false,
     },
     row: {
       type: Number,
-      default: 1
-    }
+      default: 1,
+    },
   },
-  components: {
-    
-  },
+  components: {},
   methods: {
     clearShow() {
-      this.$emit('clear');
-    }
+      this.$emit("clear");
+    },
   },
   name: "KInput",
 
@@ -62,14 +65,14 @@ export default {
       }
       return type.false;
     },
-
   },
-  mounted: {
-
-}
+  mounted: {},
 };
 </script>
 <style lang="scss">
+div {
+  position: relative;
+}
 .k-input {
   -webkit-appearance: none;
   background-color: #fff;
@@ -103,5 +106,9 @@ export default {
 }
 .disabled2 {
   cursor: text;
+}
+.input-span {
+  position: absolute;
+  top: 0;
 }
 </style>

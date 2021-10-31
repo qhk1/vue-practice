@@ -20,7 +20,7 @@
     </ComponentLayout>
 
     <ComponentLayout>
-      <template v-slot:title> 输入长度限制 </template>
+      <template v-slot:title>输入长度限制</template>
       <template v-slot:desc></template>
       <KInput placeholder="请输入内容" maxlength="8"></KInput>
       <template v-slot:el-demo>
@@ -69,13 +69,13 @@
     <ComponentLayout>
       <template v-slot:title> 文本域 </template>
       <template v-slot:desc></template>
-      <KInput placeholder="请输入内容" type="textarea" :row="2"></KInput>
+      <!-- <KTextarea ></KTextarea> -->
       <template v-slot:el-demo>
         <el-input
           type="textarea"
           :rows="2"
           placeholder="请输入内容"
-          v-model="textarea"
+          v-model="input"
         >
         </el-input>
       </template>
@@ -84,6 +84,7 @@
 </template>
 <script>
 import KInput from "../k-components/KInpunt.vue";
+// import KTextarea from "../k-components/KTextarea.vue";
 import ComponentLayout from "../components/ComponentLayout.vue";
 export default {
   data() {
@@ -91,11 +92,13 @@ export default {
       input: "",
       inputText: "",
       showPassword: "password",
+      textarea: "",
     };
   },
   components: {
     ComponentLayout,
     KInput,
+    // KTextarea,
   },
   methods: {
     handleClick() {
