@@ -18,6 +18,18 @@
             <!-- <span slot="title">导航二</span> -->
             <router-link to="/InputPage">input输入框</router-link>
           </el-menu-item>
+          <el-menu-item index="3">
+            <i class="el-icon-menu"></i>
+            <router-link to="/RadioPage">Radio 单选框</router-link>
+          </el-menu-item>
+          <el-menu-item index="4">
+            <i class="el-icon-menu"></i>
+            <router-link to="/CheckboxPage">Checkbox 多选框</router-link>
+          </el-menu-item>
+          <el-menu-item index="5">
+            <i class="el-icon-menu"></i>
+            <router-link to="/SelectPage">Select 选择器</router-link>
+          </el-menu-item>
         </el-menu>
       </el-col>
     </el-row>

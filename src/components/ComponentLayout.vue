@@ -4,7 +4,7 @@
       <slot name="title"></slot>
     </h3>
     <p class="desc">
-      <slot name="desc"></slot>
+      <slot name="desc" style="display:flex"></slot>
     </p>
     <div class="demo-block">
       <slot></slot>

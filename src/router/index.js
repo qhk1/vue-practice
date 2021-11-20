@@ -3,6 +3,9 @@ import VueRouter from 'vue-router';
 import Layout from '../views/Layout.vue';
 import ButtonPage from '../views/ButtonPage.vue';
 import InputPage from '../views/InputPage.vue';
+import RadioPage from '../views/RadioPage.vue'
+import CheckboxPage from '../views/CheckboxPage.vue'
+import SelectPage from '../views/SelectPage';
 
 
 Vue.use(VueRouter);
@@ -22,6 +25,21 @@ const routes = [
         path: '/InputPage',
         name: 'InputPage',
         component: InputPage,
+      },
+      {
+        path: '/RadioPage',
+        name: 'RadioPage',
+        component: RadioPage,
+      },
+      {
+        path: '/CheckboxPage',
+        name: 'CheckboxPage',
+        component: CheckboxPage,
+      },
+      {
+        path: '/SelectPage',
+        name: 'SelectPage',
+        component: SelectPage,
       },
     ],
   },
