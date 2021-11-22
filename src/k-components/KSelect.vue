@@ -4,7 +4,8 @@
       class="k-select"
       type="text"
       placeholder="请选择"
-      :class="onFocus ? 'active' : ''"
+      :disabled="disabled == 'true' ? true : false"
+      :class="[onFocus ? 'active' : '', disabled == 'true' ? 'disInput' : '']"
       v-on:focus="changeLog()"
       v-model="textInput"
       v-on:blur="changeBlur()"
@@ -12,13 +13,21 @@
     />
     <i
       class="el-icon-arrow-down"
-      :class="rotateIcon ? 'active' : ''"
+      :class="[rotateIcon ? 'active' : '', disabled == 'true' ? 'disIcon' : '']"
       @click="changeIcon()"
+      v-if="textInput.length == 0"
     ></i>
-      <div v-if="onFocus" class="downMenu">
+    <i v-if="textInput.length > 0" class="el-icon-circle-close" @click="deleteIcon"></i>
+    <!-- <div class="downMenu"> -->
+    <div v-if="onFocus" class="downMenu">
       <ul>
-        <li v-for="(item, index) in label" :key="index" @mouseenter="changeText(item)">
-          <p>{{item}}</p>
+        <li
+          v-for="(item, index) in label"
+          :key="index"
+          :class="item.disabled ? 'active' : ''"
+          @mouseenter="changeText(item)"
+        >
+          <p>{{ item.name }}</p>
         </li>
       </ul>
     </div>
@@ -30,23 +39,30 @@ export default {
     return {
       rotateIcon: false,
       onFocus: false,
-      textInput: ""
-      
+      textInput: [],
     };
   },
   props: {
     label: Array,
+    disabled: {
+      type: String,
+      default: "false",
+    },
   },
 
   components: {},
   methods: {
     changeIcon() {
-      if (this.rotateIcon) {
-        this.rotateIcon = false;
+      if (this.disabled == "true") {
+        return;
       } else {
-        this.rotateIcon = true;
+        if (this.rotateIcon) {
+          this.rotateIcon = false;
+        } else {
+          this.rotateIcon = true;
+        }
+        this.onFocus == true ? (this.onFocus = false) : (this.onFocus = true);
       }
-      this.onFocus == true ? (this.onFocus = false) : (this.onFocus = true);
     },
     changeLog() {
       // this.onFocus = true;
@@ -56,7 +72,14 @@ export default {
       this.rotateIcon = false;
     },
     changeText(item) {
-      this.textInput = item;
+      if (item.disabled == true) {
+        this.textInput = "";
+      } else {
+        this.textInput.push(item.name);
+      }
+    },
+    deleteIcon() {
+      this.textInput.pop();
     }
   },
 
@@ -65,6 +88,7 @@ export default {
 };
 </script>
 <style lang="scss">
+@import "../assets/mixin";
 div {
   position: relative;
   .k-select {
@@ -82,12 +106,17 @@ div {
     padding: 0 15px;
     transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     width: 217.5px;
+    overflow: auto;
     &::placeholder {
       color: #c3c4cc;
       font-size: 14px;
     }
     &.active {
       border: 1px solid #409eff;
+    }
+    &.disInput {
+      background: #f5f7fa;
+      cursor: not-allowed;
     }
   }
   .el-icon-arrow-down {
@@ -101,22 +130,35 @@ div {
     &.active {
       transform: rotate(-180deg);
     }
+    &.disIcon {
+      cursor: not-allowed;
+    }
+  }
+  .el-icon-circle-close {
+    position: absolute;
+    left: 195px;
+    top: 14px;
+    opacity: 0.5;
   }
   .downMenu {
     min-width: 217px;
     min-height: 240px;
     position: absolute;
-    background-color: #e0d8d8;
+    background-color: #dfdfdf;
+    top: 55px;
+    border: 1px solid #fff;
     padding: 0;
-    // transform-origin: center top;
     z-index: 999;
     ul {
-      width: 81%;
-      height: 210px;
+      width: 100%;
+      height: 240px;
+      padding: 0;
+      margin: 0;
       li {
-        width: 100%;
+        width: 207px;
         height: 34px;
         list-style: none;
+        padding-left: 10px;
         p {
           font-size: 14px;
           white-space: nowrap;
@@ -128,6 +170,16 @@ div {
         }
         &:hover {
           background-color: rgb(167, 163, 163);
+        }
+        &.active {
+          cursor: not-allowed;
+          p {
+            color: #c4c4cf;
+            cursor: not-allowed;
+          }
+          &:hover {
+            background: #dfdfdf;
+          }
         }
       }
     }
