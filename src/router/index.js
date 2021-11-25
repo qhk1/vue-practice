@@ -6,7 +6,7 @@ import InputPage from '../views/InputPage.vue';
 import RadioPage from '../views/RadioPage.vue'
 import CheckboxPage from '../views/CheckboxPage.vue'
 import SelectPage from '../views/SelectPage';
-
+import TablePage from '../views/TablePage.vue';
 
 Vue.use(VueRouter);
 
@@ -40,6 +40,11 @@ const routes = [
         path: '/SelectPage',
         name: 'SelectPage',
         component: SelectPage,
+      },
+      {
+        path: '/TablePage',
+        name: 'TablePage',
+        component: TablePage,
       },
     ],
   },

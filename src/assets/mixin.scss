@@ -73,12 +73,18 @@ $gray:rgb(102,102,102);
 @mixin fj($type: space-between){
 	display: flex;
 	justify-content: $type;
-  	align-items: flex-end;
+  align-items: flex-end;
+
 }
 
 //flex 布局和 子元素 对其方式
-@mixin fjct($type: space-between){
-	display: flex;
-	justify-content: $type;
-  	align-items: center;
+@mixin fjqd($lr: center, $tb:center) {
+  display: flex;
+  justify-content: $lr;
+  align-items: $tb;
+
 }
+.date-style .el-date-picker {
+    background: none;
+}
+

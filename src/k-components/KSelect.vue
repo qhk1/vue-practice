@@ -17,7 +17,11 @@
       @click="changeIcon()"
       v-if="textInput.length == 0"
     ></i>
-    <i v-if="textInput.length > 0" class="el-icon-circle-close" @click="deleteIcon"></i>
+    <i
+      v-if="textInput.length > 0"
+      class="el-icon-circle-close"
+      @click="deleteIcon"
+    ></i>
     <!-- <div class="downMenu"> -->
     <div v-if="onFocus" class="downMenu">
       <ul>
@@ -40,6 +44,28 @@ export default {
       rotateIcon: false,
       onFocus: false,
       textInput: [],
+      selectList: [
+        "三全鲜食（北新泾店）",
+        "Hot honey 首尔炸鸡（仙霞路）",
+        "新旺角茶餐厅",
+        "泷千家(天山西路店)",
+        "胖仙女纸杯蛋糕（上海凌空店）",
+        "贡茶",
+        "豪大大香鸡排超级奶爸",
+        "茶芝兰（奶茶，手抓饼）",
+        "十二泷町",
+        "星移浓缩咖啡",
+        "阿姨奶茶/豪大大",
+        "新麦甜四季甜品炸鸡",
+        "Monica摩托主题咖啡店",
+        "浮生若茶（凌空soho店）",
+        "NONO JUICE  鲜榨果汁",
+        "CoCo都可(北新泾店）",
+        "快乐柠檬（神州智慧店）",
+        "猫山王（西郊百联店）",
+        "枪会山",
+        "爱茜茜里(西郊百联)",
+      ],
     };
   },
   props: {
@@ -73,17 +99,23 @@ export default {
     },
     changeText(item) {
       if (item.disabled == true) {
-        this.textInput = "";
+        this.textInput = [];
       } else {
         this.textInput.push(item.name);
       }
     },
     deleteIcon() {
       this.textInput.pop();
-    }
+    },
   },
 
-  computed: {},
+  computed: {
+    // changeLabel() {
+    // // return this.label.filter(item => item.indexOf(this.textInput) > -1);
+    // var num =  this.textInput.toString().replace(/,/g,'');
+    // return num;
+    // },
+  },
   mounted() {},
 };
 </script>
@@ -142,7 +174,8 @@ div {
   }
   .downMenu {
     min-width: 217px;
-    min-height: 240px;
+    max-height: 280px;
+    overflow: auto;
     position: absolute;
     background-color: #dfdfdf;
     top: 55px;
@@ -151,12 +184,12 @@ div {
     z-index: 999;
     ul {
       width: 100%;
-      height: 240px;
+      // height: 240px;
       padding: 0;
       margin: 0;
       li {
         width: 207px;
-        height: 34px;
+        min-height: 34px;
         list-style: none;
         padding-left: 10px;
         p {

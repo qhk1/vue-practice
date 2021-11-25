@@ -30,6 +30,10 @@
             <i class="el-icon-menu"></i>
             <router-link to="/SelectPage">Select 选择器</router-link>
           </el-menu-item>
+          <el-menu-item index="6">
+            <i class="el-icon-menu"></i>
+            <router-link to="/TablePage">Table 表格</router-link>
+          </el-menu-item>
         </el-menu>
       </el-col>
     </el-row>

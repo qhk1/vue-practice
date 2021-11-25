@@ -91,11 +91,11 @@
     <ComponentLayout>
       <template v-slot:title> 分组 </template>
       <template v-slot:desc>备选项进行分组展示</template>
-      <KSelect :label="selectLabel"></KSelect>
+      <KSelect></KSelect>
       <template v-slot:el-demo>
         <el-select v-model="value" placeholder="请选择">
           <el-option-group
-            v-for="group in options"
+            v-for="group in options2"
             :key="group.label"
             :label="group.label"
           >
@@ -107,6 +107,22 @@
             >
             </el-option>
           </el-option-group>
+        </el-select>
+      </template>
+    </ComponentLayout>
+    <ComponentLayout>
+      <template v-slot:title> 可搜索 </template>
+      <template v-slot:desc>可以利用搜索功能快速查找选项</template>
+      <KSelect :label="selectLabel"></KSelect>
+      <template v-slot:el-demo>
+        <el-select v-model="value" filterable placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
         </el-select>
       </template>
     </ComponentLayout>
@@ -161,6 +177,42 @@ export default {
         {
           value: "选项5",
           label: "北京烤鸭",
+        },
+      ],
+      options2: [
+        {
+          label: "热门城市",
+          options: [
+            {
+              value: "Shanghai",
+              label: "上海",
+            },
+            {
+              value: "Beijing",
+              label: "北京",
+            },
+          ],
+        },
+        {
+          label: "城市名",
+          options: [
+            {
+              value: "Chengdu",
+              label: "成都",
+            },
+            {
+              value: "Shenzhen",
+              label: "深圳",
+            },
+            {
+              value: "Guangzhou",
+              label: "广州",
+            },
+            {
+              value: "Dalian",
+              label: "大连",
+            },
+          ],
         },
       ],
       selectLabel: [
